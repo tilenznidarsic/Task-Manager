@@ -1,7 +1,5 @@
 # TASK MANAGER APP
 
----
-
 Simple task manager app like Jira, Asana.
 
 ## FEATURES:
