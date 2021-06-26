@@ -1,5 +1,9 @@
 # TASK MANAGER APP
 
+---
+
+Simple task manager app like Jira, Asana.
+
 ## FEATURES:
 
 - login / register
@@ -9,4 +13,4 @@
 
 ## TODO:
 
-- class validation
+- frontend app

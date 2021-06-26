@@ -14,7 +14,7 @@ export default async function authMiddleware(
   if (cookies && cookies.token) {
     try {
       const validated = jwt.verify(cookies.token, process.env.JWT_SECRET);
-      const user = userRepo.findOne(validated.id);
+      const user = await userRepo.findOne(validated.id);
 
       if (user) {
         req.user = user;

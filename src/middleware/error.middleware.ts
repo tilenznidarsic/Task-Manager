@@ -1,13 +1,15 @@
 import * as express from "express";
 import HttpException from "../exceptions/HttpException";
 
+// 4 params required for error middleware functions
 export default function errorMiddleware(
-  error: HttpException,
+  err: HttpException,
   req: Request,
-  res: Response
+  res: Response,
+  next: express.NextFunction
 ) {
-  const statusCode: number = error.status || 500;
-  const message: string = error.message || "Something went wrong";
+  const statusCode: number = err.status || 500;
+  const message: string = err.message || "Something went wrong";
 
   res.status(statusCode).send({ message, statusCode });
 }

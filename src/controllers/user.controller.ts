@@ -10,10 +10,19 @@ export default class UserController implements Controller {
 
   constructor() {
     this.router.get(this.path, this.getAllUsers);
+    this.router.get(`${this.path}/:id`, this.getUserById);
   }
 
-  private getAllUsers = async (req: express.Request, res: express.Response) => {
+  private getAllUsers = async (req: Request, res: Response) => {
     const users = await this.categoryRepo.find({ relations: ["tasks"] });
     res.send(users);
+  };
+
+  private getUserById = async (req: Request, res: Response) => {
+    const id = req.params.id;
+
+    const user = await this.categoryRepo.findOne(id);
+
+    res.send(user);
   };
 }
